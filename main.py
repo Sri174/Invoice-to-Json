@@ -9,6 +9,7 @@ import os
 import io
 import time
 import logging
+import platform
 from datetime import datetime
 from typing import Optional
 import traceback
@@ -72,9 +73,15 @@ async def startup_event():
     
     try:
         # Initialize PDF Processor
-        poppler_path = os.getenv("POPPLER_PATH", r"C:\Program Files\poppler-25.12.0\Library\bin")
+        # On Windows: use POPPLER_PATH or default Windows location
+        # On Linux/Docker: use system poppler (installed via apt-get)
+        if platform.system() == "Windows":
+            poppler_path = os.getenv("POPPLER_PATH", r"C:\Program Files\poppler-25.12.0\Library\bin")
+        else:
+            poppler_path = os.getenv("POPPLER_PATH")  # None = use system PATH
+        
         pdf_processor = PDFProcessor(poppler_path=poppler_path)
-        logger.info("✓ PDF Processor initialized")
+        logger.info(f"✓ PDF Processor initialized (poppler_path: {poppler_path or 'system PATH'})")
         
         # Initialize OCR Engine
         if PADDLEOCR_AVAILABLE:
