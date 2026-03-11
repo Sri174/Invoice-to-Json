@@ -1,0 +1,31 @@
+# FastAPI
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+
+# Core
+streamlit>=1.26.0
+pillow>=9.5.0
+requests>=2.31.0
+httpx>=0.28.1
+python-multipart
+
+# Google / Gemini
+google-auth>=2.20.0
+google-genai
+
+# PDF / Image
+pdf2image>=1.16.3
+pdfplumber>=0.7.6
+PyPDF2
+opencv-python-headless>=4.7.0.72
+numpy>=1.24.2
+
+# OCR - Production Grade
+paddleocr>=2.7.0
+paddlepaddle>=2.5.0
+
+# OCR - Fallback
+pytesseract
+
+# Barcode
+pyzbar>=0.1.9
