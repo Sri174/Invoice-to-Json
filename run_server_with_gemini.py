@@ -43,7 +43,7 @@ try:
     # Start server in foreground so we see all logs
     subprocess.run([
         sys.executable, "-m", "uvicorn",
-        "api_server:app",
+        "app:app",
         "--reload",
         "--port", "8080",
         "--log-level", "info"

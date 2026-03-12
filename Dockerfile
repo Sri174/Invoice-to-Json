@@ -1,4 +1,4 @@
-FROM python:3.11-slim
+FROM python:3.12-slim
 
 # Prevent python from writing pyc files
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -41,4 +41,4 @@ RUN mkdir -p runs
 EXPOSE 10000
 
 # Start FastAPI server
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "10000", "--workers", "2"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "10000", "--workers", "2"]

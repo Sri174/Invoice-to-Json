@@ -29,3 +29,7 @@ pytesseract
 
 # Barcode
 pyzbar>=0.1.9
+
+# Optional: DONUT model (legacy, not used in main app)
+# transformers>=4.30.0
+# torch>=2.0.0

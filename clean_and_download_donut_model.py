@@ -1,14 +1,27 @@
 """
 clean_and_download_donut_model.py
 ---------------------------------
+**OPTIONAL SCRIPT - NOT REQUIRED FOR MAIN APP**
+
 Script to clean the models directory and download all required DONUT model files from Hugging Face.
+The main app (app.py) uses Gemini + OCR instead, so this is only needed if you want to experiment
+with DONUT models.
+
+To use this script, install optional dependencies:
+    pip install transformers torch
+
 Run this to ensure a fresh, complete, and compatible model setup.
 """
 
 
 import os
 import shutil
-from transformers import DonutProcessor, VisionEncoderDecoderModel
+
+try:
+    from transformers import DonutProcessor, VisionEncoderDecoderModel
+except ImportError:
+    print("ERROR: transformers not installed. Install with: pip install transformers torch")
+    exit(1)
 
 MODEL_REPO = "naver-clova-ix/donut-base-finetuned-docvqa"
 LOCAL_DIR = "./invoice_engine/models"

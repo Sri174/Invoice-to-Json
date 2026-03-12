@@ -124,7 +124,7 @@ Type=simple
 User=ubuntu
 WorkingDirectory=/opt/invoice-engine
 Environment="PATH=/opt/invoice-engine/venv/bin"
-ExecStart=/opt/invoice-engine/venv/bin/python main.py
+ExecStart=/opt/invoice-engine/venv/bin/uvicorn app:app --host 0.0.0.0 --port 8000
 Restart=always
 
 [Install]
@@ -256,7 +256,7 @@ Example for 4 cores:
 Add Redis for response caching:
 
 ```python
-# In main.py
+# In app.py
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.redis import RedisBackend
 
@@ -283,7 +283,7 @@ curl http://localhost:8000/
 Configure structured logging:
 
 ```python
-# In main.py
+# In app.py
 import json
 import logging
 
@@ -357,7 +357,7 @@ async def extract_invoice(request: Request, file: UploadFile):
 Already configured in FastAPI:
 
 ```python
-# In main.py
+# In app.py
 app.add_middleware(
     LimitUploadSize,
     max_upload_size=50_000_000  # 50MB

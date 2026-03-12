@@ -26,7 +26,7 @@ try:
 except Exception:
     print("✗ Server is NOT running!")
     print("\nPlease start it in another terminal with:")
-    print("  uvicorn api_server:app --reload")
+    print("  uvicorn app:app --reload")
     print("\nYou'll see console logs like:")
     print("  [OCR] Processing file: <filename>")
     print("  [OCR] Gemini API key present: True/False")

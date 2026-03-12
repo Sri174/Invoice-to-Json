@@ -2,7 +2,7 @@
 multipage_parser.py
 -------------------
 Multi-page invoice parser that integrates with the production extraction pipeline.
-This module bridges the old api_server.py with the new extraction system.
+This module bridges the app.py with the extraction system.
 """
 
 import logging
@@ -22,7 +22,7 @@ def parse_multipage_invoice(pdf_path: Union[str, Path]) -> Dict[str, Any]:
     Parse a multi-page invoice PDF and return structured JSON.
     
     This function uses OCR-based extraction without LLM for faster processing.
-    It's used as a fallback in the legacy api_server.py system.
+    It's used as a fallback in the app.py system.
     
     Args:
         pdf_path: Path to the PDF file
@@ -97,7 +97,7 @@ def _rule_based_extraction(text: str) -> Dict[str, Any]:
     Simple rule-based extraction from OCR text.
     
     This is a basic implementation that looks for common patterns.
-    For better accuracy, use the Gemini-based extraction in main.py.
+    For better accuracy, use the Gemini-based extraction in app.py.
     
     Args:
         text: Combined OCR text from all pages

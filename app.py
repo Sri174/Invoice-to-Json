@@ -487,4 +487,4 @@ if __name__ == "__main__":
         logger.info(f"Starting server on {host}:{port}")
         uvicorn.run(app, host=host, port=port)
     except Exception:
-        logger.exception("Failed to start uvicorn. Run with: uvicorn api_server:app --host 0.0.0.0 --port 8070 --reload")
+        logger.exception("Failed to start uvicorn. Run with: uvicorn app:app --host 0.0.0.0 --port 8070 --reload")

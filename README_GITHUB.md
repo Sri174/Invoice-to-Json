@@ -72,14 +72,14 @@ brew install poppler
 
 ### 5. Start Server
 
-**Production System (Recommended):**
+**Start the API server:**
 ```bash
-python main.py
+uvicorn app:app
 ```
 
-**Legacy System:**
+**Start the API server:**
 ```bash
-uvicorn api_server:app --host 0.0.0.0 --port 8000
+uvicorn app:app --host 0.0.0.0 --port 8000
 ```
 
 Server runs at: `http://localhost:8000`
@@ -187,8 +187,7 @@ invoice_engine/
 ├── multipage_parser.py      # Multi-page processing
 └── universal_schema.json    # Output schema template
 
-main.py                      # Production FastAPI app
-api_server.py                # Legacy API server
+app.py                       # FastAPI API server
 requirements.txt             # Python dependencies
 Dockerfile                   # Container definition
 ```
